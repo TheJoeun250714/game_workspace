@@ -11,7 +11,8 @@ class GameCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.push('/game/${game.id}', extra: game),
+    //  onTap: () => context.push('/game/${game.id}', extra: game),
+      onTap: () => context.push('/${game.id}', extra: game),
       child: Container(
         decoration: BoxDecoration(
           color: game.color,
