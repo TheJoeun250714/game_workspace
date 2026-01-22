@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../providers/game_provider.dart';
+import '../../providers/bird_fluffy_provider.dart';
 
 // TODO 과제: 게임 오버를 감지하고 다이얼로그를 표시하는 위젯 완성하기
 //
@@ -25,7 +25,7 @@ class _GameOverListenerState extends State<GameOverListener> {
 
   @override
   Widget build(BuildContext context) {
-    final game = context.watch<GameProvider>();
+    final game = context.watch<BirdFluffyProvider>();
     if (_wasGameStarted && !game.gameStarted) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         _showGameOverDialog(context, game);
@@ -35,7 +35,7 @@ class _GameOverListenerState extends State<GameOverListener> {
     return const SizedBox.shrink();
   }
 
-  void _showGameOverDialog(BuildContext context, GameProvider game) {
+  void _showGameOverDialog(BuildContext context, BirdFluffyProvider game) {
     String msg;
 
     if (game.gameTime >= game.targetTime) {

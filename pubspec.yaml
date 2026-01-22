@@ -23,9 +23,9 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-
   assets:
     - assets/images/
+    - assets/images/bird_fluffy/
   fonts:
     - family: Pretendard
       fonts:

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:game_workspace/models/game_item.dart';
 import 'package:provider/provider.dart';
 
-import '../providers/game_provider.dart';
+import '../providers/bird_fluffy_provider.dart';
 import '../widgets/bird_fluffy/game_area_widget.dart';
 import '../widgets/bird_fluffy/ground_widget.dart';
 import '../widgets/bird_fluffy/score_widget.dart';
@@ -29,7 +29,7 @@ class BirdFluffyScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Listener(
       onPointerDown: (_) {
-        final game = context.read<GameProvider>();
+        final game = context.read<BirdFluffyProvider>();
         if (!game.gameStarted) {
           game.startGame();
         } else {
@@ -37,7 +37,7 @@ class BirdFluffyScreen extends StatelessWidget {
         }
       },
       onPointerUp: (_) {
-        final game = context.read<GameProvider>();
+        final game = context.read<BirdFluffyProvider>();
         game.stopHolding();
         if (game.gameStarted) {
           game.jump();

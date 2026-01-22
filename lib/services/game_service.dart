@@ -1,36 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:game_workspace/constants/game_assets.dart';
 import 'package:game_workspace/models/game_item.dart';
 
 class GameService {
   static List<GameItem> getAllGames(){
     return [
       GameItem(id: 'flappy',
-          name: '새 충돌피하기 게임',
+          name: '충돌피하기',
           color: Colors.blue,
-          icon: Icons.flight
+          imageAsset: GameAssets.birdFluffyFlyBird
+          //icon: Icons.flight
       ),
       GameItem(id: 'shooter',
-          name: '슈팅 게임',
+          name: '슈팅',
           color: Colors.red,
           icon: Icons.gps_fixed
       ),
       GameItem(id: 'racing',
-          name: '레이싱 게임',
+          name: '레이싱',
           color: Colors.yellow.shade700,
           icon: Icons.flight
       ),
       GameItem(id: 'puzzle',
-          name: '퍼즐 게임',
+          name: '퍼즐',
           color: Colors.purple,
           icon: Icons.extension
       ),
       GameItem(id: 'arcade',
-          name: '아케이드 게임',
+          name: '아케이드',
           color: Colors.green,
           icon: Icons.sports_esports
       ),
       GameItem(id: 'adventure',
-          name: '어드벤처 게임',
+          name: '어드벤처',
           color: Colors.pink,
           icon: Icons.explore
       ),

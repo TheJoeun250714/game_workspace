@@ -30,7 +30,7 @@ static const String birdFluffyBackground = "assets/images/bird_fluffy/background
 static const String birdFluffyGround = "assets/images/bird_fluffy/ground.png";
 // 새 이미지
 static const String birdFluffyFlyBird = "assets/images/bird_fluffy/fly_bird.png";
-static const String birdFluffyLoading = "assets/images/loading.gif";
+static const String birdFluffyLoading = "assets/images/bird_fluffy/loading.gif";
 //장애물 이미지
 static const String birdFluffyBarrierTop = "assets/images/bird_fluffy/barrier_vertical_top.png";
 static const String birdFluffyBottom = "assets/images/bird_fluffy/barrier_vertical_bottom.png";

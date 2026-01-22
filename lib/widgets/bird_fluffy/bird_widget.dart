@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:game_workspace/constants/game_assets.dart';
 import 'package:provider/provider.dart';
 
-import '../../providers/game_provider.dart';
+import '../../providers/bird_fluffy_provider.dart';
 
 class BirdWidget extends StatelessWidget {
   const BirdWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final game = context.watch<GameProvider>(); //게임상태 확인
+    final game = context.watch<BirdFluffyProvider>(); //게임상태 확인
     final birdY = game.birdY;
 
     return AnimatedContainer(
