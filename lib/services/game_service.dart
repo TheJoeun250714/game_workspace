@@ -11,8 +11,8 @@ class GameService {
           imageAsset: GameAssets.birdFluffyFlyBird
           //icon: Icons.flight
       ),
-      GameItem(id: 'shooter',
-          name: '슈팅',
+      GameItem(id: 'dressUp',
+          name: '옷입히기',
           color: Colors.red,
           icon: Icons.gps_fixed
       ),

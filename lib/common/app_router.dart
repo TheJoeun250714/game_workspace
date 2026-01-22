@@ -1,5 +1,6 @@
 import 'package:game_workspace/models/game_item.dart';
 import 'package:game_workspace/screens/bird_fluffy_screen.dart';
+import 'package:game_workspace/screens/dress_up_screen.dart';
 import 'package:game_workspace/screens/main_screen.dart';
 import 'package:go_router/go_router.dart';
 
@@ -19,6 +20,12 @@ class AppRouter {
           // 변환처리된 결과를 BirdFluffyScreen 에서 gameItem이라는 명칭으로 활용하겠어요. ^^
           final game = state.extra as GameItem?;
           return BirdFluffyScreen(gameId: 'flappy', gameItem: game);
+        }),
+    GoRoute(
+        path: '/dressUp',
+        builder: (context, state) {
+          final game = state.extra as GameItem?;
+          return DressUpScreen(gameId: 'dressUp', gameItem: game);
         }),
     /*
         GoRoute(path: '/game/:id',

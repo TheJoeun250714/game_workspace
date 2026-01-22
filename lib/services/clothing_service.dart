@@ -9,8 +9,8 @@ class ClothingService {
     // 헤어 (type: 0)
     // ClothingItem(id: id, name: name, type: type, color: color)
     ClothingItem('h1', '짧은머리', 0, const Color(0xFF8B4513)),
-    ClothingItem('h1', '긴머리', 0, const Color(0xFF000000)),
-    ClothingItem('h1', '금발머리', 0, const Color(0xFFFFD700)),
+    ClothingItem('h2', '긴머리', 0, const Color(0xFF000000)),
+    ClothingItem('h3', '금발머리', 0, const Color(0xFFFFD700)),
 
     // 상의 (type: 1)
     ClothingItem('t1', '티셔츠', 1, Colors.blue),

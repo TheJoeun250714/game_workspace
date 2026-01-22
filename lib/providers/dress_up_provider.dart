@@ -17,12 +17,43 @@ class DressUpProvider extends ChangeNotifier {
   // List = 목록에서 조건에 맞는 것만 골라서 -> 다시 목록으로 만들자~
   List<ClothingItem> get items {
     return ClothingService.items
-    // ClothingService 에는 헤어 상의 하의 신발 악세사리 카테고리가 존재하고, 카테고리마다 데이터가 존재
-    // 소비자가 만약에 헤어를 선택하면 헤어 카테고리에 해당하는 모든 데이터만 items으로 가져가기
-        .where( // filter 역할
-      // 리스트에 있는 요소를 하나씩 꺼내서 item 이라는 이름으로 잠시 데이터를 담아두겠다.
-            (item) => item.type == category  // item에 담겨있는 type 이 내가 원하는 category와 같습니까?
-    )
+        // ClothingService 에는 헤어 상의 하의 신발 악세사리 카테고리가 존재하고, 카테고리마다 데이터가 존재
+        // 소비자가 만약에 헤어를 선택하면 헤어 카테고리에 해당하는 모든 데이터만 items으로 가져가기
+        .where(// filter 역할
+            // 리스트에 있는 요소를 하나씩 꺼내서 item 이라는 이름으로 잠시 데이터를 담아두겠다.
+            (item) =>
+                item.type ==
+                category // item에 담겨있는 type 이 내가 원하는 category와 같습니까?
+            )
         .toList(); // 모두 필터처리되어 걸러진 아이템들을 다시 목록 리스트 형태로 변환
+  }
+
+  // 카테고리 선택
+  void selectCategory(int type) {
+    category = type;
+    notifyListeners();
+  }
+
+  // equipped = 장비 갖추게 하는 / 구비된
+  // 아이템 착용
+  void selectItem(ClothingItem item) {
+    equipped[item.type] = item;
+  }
+
+  // 현재 카테고리 아이템 해제
+  void removeItem() {
+    equipped[category] = null;
+    notifyListeners();
+  }
+
+  // 모든 아이템 초기화
+  void reset() {
+    equipped = [null, null, null, null, null];
+    notifyListeners(); //초기화 끝냈대요 ^^~
+  }
+
+  // 아이템 착용 중인지 확인
+  bool isEquipped(ClothingItem item) {
+    return equipped[item.type]?.id == item.id;
   }
 }
