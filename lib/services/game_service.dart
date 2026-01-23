@@ -14,7 +14,8 @@ class GameService {
       GameItem(id: 'dressUp',
           name: '옷입히기',
           color: Colors.red,
-          icon: Icons.gps_fixed
+         imageAsset: GameAssets.dressUpLogo
+         // icon: Icons.gps_fixed
       ),
       GameItem(id: 'racing',
           name: '레이싱',

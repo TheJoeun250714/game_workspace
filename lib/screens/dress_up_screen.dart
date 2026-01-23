@@ -67,10 +67,6 @@ class DressUpScreen extends StatelessWidget {
                     _categoryButton(provider, 3, '신발'),
                     _categoryButton(provider, 4, '악세'),
 
-                    // 카테고리 버튼 상의
-                    // 카테고리 버튼 하의
-                    // 카테고리 버튼 신발
-                    // 카테고리 버튼 악세
                   ],
                 ),
               ),
@@ -128,14 +124,12 @@ class DressUpScreen extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container(
-                        width: 50,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          color: item.color,
-                          borderRadius: BorderRadius.circular(10)
-                        ),
-                      ),
+                    Image.asset(
+                      item.imageAsset,
+                      width: 50,
+                      height: 50,
+                      fit: BoxFit.contain,
+                    ),
                       SizedBox(height: 16),
                       Text(item.name)
                     ],

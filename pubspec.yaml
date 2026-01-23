@@ -24,8 +24,11 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
+    # assets 전체를 사용하고 싶다면 assets/ 폴더만 pub get
+    # assets/ 내부에서 사용하고자 하는 폴더가 따로 존재한다면 폴더별로 사용하겠다 처리
     - assets/images/
     - assets/images/bird_fluffy/
+    - assets/images/dress_up/
   fonts:
     - family: Pretendard
       fonts:

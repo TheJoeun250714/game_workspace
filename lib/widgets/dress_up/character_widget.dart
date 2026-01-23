@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:game_workspace/constants/game_assets.dart';
 import 'package:game_workspace/models/clothing_item.dart';
 
 class CharacterWidget extends StatelessWidget {
@@ -19,9 +20,9 @@ class CharacterWidget extends StatelessWidget {
           _buildBody(),
 
           // 머리
-          _buildHead(),
+          //_buildHead(),
           // 헤어 (장착시)
-          if(equipped[0] != null) _buildHair(),
+          if (equipped[0] != null) _buildHair(),
           // 상의 (장착시)
 
           // 하의 (장착시)
@@ -41,15 +42,14 @@ class CharacterWidget extends StatelessWidget {
     return Positioned(
         bottom: 100,
         left: 60,
-        child: Container(
+        child: Image.asset(
+          GameAssets.dressUpBody,
           width: 80,
           height: 120,
-          decoration: BoxDecoration(
-            color: const Color(0xFFFFDBAC),
-            borderRadius: BorderRadius.circular(40)
-          ),
+          fit: BoxFit.cover,
         ));
   }
+
   // 머리
   Widget _buildHead() {
     return Positioned(
@@ -59,23 +59,34 @@ class CharacterWidget extends StatelessWidget {
           width: 100,
           height: 100,
           decoration: const BoxDecoration(
-              color: Color(0xFFFFDBAC),
-              shape: BoxShape.circle
-          ),
+              color: Color(0xFFFFDBAC), shape: BoxShape.circle),
         ));
   }
+
   // 헤어
   Widget _buildHair() {
     return Positioned(
-        top: 30,
-        left: 45,
-        child: Container(
+      top: 30,
+      left: 45,
+      child: Image.asset(
+        equipped[0]!.imageAsset,
+        width: 110,
+        height: 80,
+        fit: BoxFit.cover,
+      ),
+    );
+  }
+
+  // 상의
+  Widget _buildTop() {
+    return Positioned(
+        top: 140,
+        left: 55,
+        child: Image.asset(
+          equipped[1]!.imageAsset,
           width: 110,
           height: 80,
-          decoration: BoxDecoration(
-              color: equipped[0]!.color,
-              borderRadius: const BorderRadius.vertical(top: Radius.circular(55) )
-          ),
+          fit: BoxFit.cover,
         ));
   }
 }

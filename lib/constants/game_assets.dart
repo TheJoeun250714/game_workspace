@@ -24,7 +24,7 @@ class GameAssets {
 
    */
 
-
+/* *************** 새 충돌 피하기 게임 에셋 *************** */
 // 배경이미지상 하
 static const String birdFluffyBackground = "assets/images/bird_fluffy/background.png";
 static const String birdFluffyGround = "assets/images/bird_fluffy/ground.png";
@@ -35,5 +35,25 @@ static const String birdFluffyLoading = "assets/images/bird_fluffy/loading.gif";
 static const String birdFluffyBarrierTop = "assets/images/bird_fluffy/barrier_vertical_top.png";
 static const String birdFluffyBottom = "assets/images/bird_fluffy/barrier_vertical_bottom.png";
 
+
+
+/* *************** 캐릭터 꾸미기 게임 에셋 *************** */
+
+  static const String dressUpLogo = "assets/images/dress_up/logo.png";
+// 배경이미지
+  static const String dressUpBackground = "assets/images/dress_up/background.png";
+
+// 캐릭터 이미지
+  static const String dressUpBody = "assets/images/dress_up/body.png";
+// 옷 이미지
+  static const String dressUpClothes1 = "assets/images/dress_up/clothes1.png";
+// 모자 이미지
+  static const String dressUpHat1= "assets/images/dress_up/hat1.png";
+//신발 이미지
+  static const String dressUpShoes1 = "assets/images/dress_up/shoes1.png";
+//악세사리 이미지
+  static const String dressUpAcc1 = "assets/images/dress_up/acc1.png";
+//가방 이미지
+  static const String bag1 = "assets/images/dress_up/bag1.png";
 
 }
