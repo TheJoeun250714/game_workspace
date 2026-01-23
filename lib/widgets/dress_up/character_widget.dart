@@ -24,12 +24,16 @@ class CharacterWidget extends StatelessWidget {
           // 헤어 (장착시)
           if (equipped[0] != null) _buildHair(),
           // 상의 (장착시)
+          if (equipped[1] != null) _buildTop(),
 
           // 하의 (장착시)
+          if (equipped[2] != null) _buildBottom(),
 
           // 신발 (장착시)
+          if (equipped[3] != null) _buildShoes(),
 
           // 악세사리 (장착시)
+          if (equipped[4] != null) _buildAcc(),
         ],
       ),
     );
@@ -44,8 +48,8 @@ class CharacterWidget extends StatelessWidget {
         left: 60,
         child: Image.asset(
           GameAssets.dressUpBody,
-          width: 80,
-          height: 120,
+          width: 150,
+          height: 150,
           fit: BoxFit.cover,
         ));
   }
@@ -86,6 +90,42 @@ class CharacterWidget extends StatelessWidget {
           equipped[1]!.imageAsset,
           width: 110,
           height: 80,
+          fit: BoxFit.cover,
+        ));
+  }
+  // 하의
+  Widget _buildBottom() {
+    return Positioned(
+        top: 210,
+        left: 55,
+        child: Image.asset(
+          equipped[2]!.imageAsset,
+          width: 90,
+          height: 80,
+          fit: BoxFit.cover,
+        ));
+  }
+  // 신발
+  Widget _buildShoes() {
+    return Positioned(
+        bottom: 70,
+        left: 55,
+        child: Image.asset(
+          equipped[2]!.imageAsset,
+          width: 90,
+          height: 30,
+          fit: BoxFit.cover,
+        ));
+  }
+  // 악세사리
+  Widget _buildAcc() {
+    return Positioned(
+        top: 140,
+        left: 55,
+        child: Image.asset(
+          equipped[4]!.imageAsset,
+          width: 30,
+          height: 30,
           fit: BoxFit.cover,
         ));
   }
