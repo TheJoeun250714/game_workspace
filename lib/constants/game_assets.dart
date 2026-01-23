@@ -42,7 +42,6 @@ static const String birdFluffyBottom = "assets/images/bird_fluffy/barrier_vertic
   static const String dressUpLogo = "assets/images/dress_up/logo.png";
 // 배경이미지
   static const String dressUpBackground = "assets/images/dress_up/background.png";
-
 // 캐릭터 이미지
   static const String dressUpBody = "assets/images/dress_up/body.png";
 // 옷 이미지
@@ -57,3 +56,4 @@ static const String birdFluffyBottom = "assets/images/bird_fluffy/barrier_vertic
   static const String bag1 = "assets/images/dress_up/bag1.png";
 
 }
+

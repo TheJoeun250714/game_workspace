@@ -127,7 +127,7 @@ class DressUpScreen extends StatelessWidget {
                     Image.asset(
                       item.imageAsset,
                       width: 70,
-                      height: 70,
+                      height: 50,
                       fit: BoxFit.contain,
                     ),
                       SizedBox(height: 16),
