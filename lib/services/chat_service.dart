@@ -2,7 +2,6 @@ import 'package:game_workspace/common/constants.dart';
 import 'package:game_workspace/models/chat/chat_request.dart';
 import 'package:game_workspace/models/chat/chat_response.dart';
 import 'package:dio/dio.dart';
-import 'package:web/helpers.dart';
 class ChatService {
   static const baseUrl = 'http://localhost:8080/api/chat';
 
