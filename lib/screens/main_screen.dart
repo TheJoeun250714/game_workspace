@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:game_workspace/models/game_item.dart';
 import 'package:game_workspace/services/game_service.dart';
+import 'package:go_router/go_router.dart';
 
 import '../widgets/game_card.dart';
 
@@ -15,6 +16,7 @@ class MainScreen extends StatelessWidget {
     // 게임 목록 데이터 추가
     final List<GameItem> games = GameService.getAllGames();
     return Scaffold(
+      appBar: AppBar(title: const Text("판타지오 게임나라"),),
       body: Container(
         // 그래디언트 = background-image
         decoration: const BoxDecoration(
@@ -45,6 +47,10 @@ class MainScreen extends StatelessWidget {
           ],
         )),
       ),
+      floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.blue,
+          child: const Icon(Icons.chat, color: Colors.white,),
+          onPressed: () => context.push("/chat")),
     );
   }
 }

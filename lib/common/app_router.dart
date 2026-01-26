@@ -1,5 +1,6 @@
 import 'package:game_workspace/models/game_item.dart';
 import 'package:game_workspace/screens/bird_fluffy_screen.dart';
+import 'package:game_workspace/screens/chat_screen.dart';
 import 'package:game_workspace/screens/dress_up_screen.dart';
 import 'package:game_workspace/screens/main_screen.dart';
 import 'package:go_router/go_router.dart';
@@ -27,6 +28,8 @@ class AppRouter {
           final game = state.extra as GameItem?;
           return DressUpScreen(gameId: 'dressUp', gameItem: game);
         }),
+    GoRoute(path: "/chat",  name: 'chat',
+        builder: (context, state) => const ChatScreen())
     /*
         GoRoute(path: '/game/:id',
         builder: (context,state) {
