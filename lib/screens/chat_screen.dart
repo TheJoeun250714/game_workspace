@@ -62,7 +62,9 @@ class _ChatScreenState extends State<ChatScreen> {
                     ? const Center(
                         child: Text('대화를 시작하세요'),
                       )
-                    : ListView.builder(itemBuilder: (context, index) {
+                    : ListView.builder(
+                    itemCount: messages.length,
+                    itemBuilder: (context, index) {
                         final msg = messages[index];
                         return Padding(
                           padding: const EdgeInsets.all(8),
