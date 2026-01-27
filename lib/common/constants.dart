@@ -1,6 +1,15 @@
+/*
+DIO 의 경우 각 서비스 환경마다
+헤더를 다르게 줄 수 있는 경우가 있으므로
+공통적으로 만들어 전체  서비스에서 사용하거나,
+각 서비스에서 사용하는 dio 형태로 구분할 수 있다.
+ */
+
 class ApiConstants {
   static const String baseUrl='http://localhost:8080/api';
   static const String todosUrl='/todos';
+  static const String chatUrl = '/chat';
+
 }
 
 class AppConstants {

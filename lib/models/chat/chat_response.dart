@@ -7,3 +7,4 @@ class ChatResponse {
   factory ChatResponse.fromJson(Map<String, dynamic> json) =>
       ChatResponse(json['conversationId'], json['message']);
 }
+
