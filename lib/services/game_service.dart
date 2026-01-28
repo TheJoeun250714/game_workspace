@@ -27,13 +27,14 @@ class GameService {
           color: Colors.purple,
           icon: Icons.extension
       ),
-      GameItem(id: 'arcade',
-          name: '아케이드',
+      GameItem(id: 'users',
+          name: '유저리스트',
           color: Colors.green,
-          icon: Icons.sports_esports
+          icon: Icons.person_outline
       ),
-      GameItem(id: 'adventure',
-          name: '어드벤처',
+      //-> 캘린더 선택으로 변경
+      GameItem(id: 'calendar',
+          name: '캘린더',
           color: Colors.pink,
           icon: Icons.explore
       ),

@@ -1,8 +1,14 @@
+// app_router 에서 1 째 줄 8번째 부터 문제가 있어요.
+// lib/common/app_router.dart(1,8): error GCB852F78: Dart library 'dart:js_interop' is not available on this platform.
+//import 'dart:js_interop';
+
 import 'package:game_workspace/models/game_item.dart';
 import 'package:game_workspace/screens/bird_fluffy_screen.dart';
+import 'package:game_workspace/screens/calendar_screen.dart';
 import 'package:game_workspace/screens/chat_screen.dart';
 import 'package:game_workspace/screens/dress_up_screen.dart';
 import 'package:game_workspace/screens/main_screen.dart';
+import 'package:game_workspace/screens/user_list_screen.dart';
 import 'package:go_router/go_router.dart';
 
 class AppRouter {
@@ -29,7 +35,16 @@ class AppRouter {
           return DressUpScreen(gameId: 'dressUp', gameItem: game);
         }),
     GoRoute(path: "/chat",  name: 'chat',
-        builder: (context, state) => const ChatScreen())
+        builder: (context, state) => const ChatScreen()),
+    GoRoute(path: "/calendar", builder: (context, state) {
+      final thisDate = state.extra as GameItem?;
+      return CalendarScreen(gameId: "calendar", gameItem: thisDate);
+    }),
+
+    GoRoute(path: "/users", builder: (context, state) {
+      final thisDate = state.extra as GameItem?;
+      return UserListScreen(gameId: "users", gameItem: thisDate);
+    })
     /*
         GoRoute(path: '/game/:id',
         builder: (context,state) {
