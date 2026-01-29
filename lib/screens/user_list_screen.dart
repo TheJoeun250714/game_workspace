@@ -72,16 +72,17 @@ class _UserListScreenState extends State<UserListScreen> {
                         child: ListTile(
                             // 프로필 이미지
                             leading: CircleAvatar(
-                              radius: 30,
-                              backgroundImage:
-                                  // The getter 'profileImageUrl' isn't defined for the type 'User'.
-                                  // 1. user.dart 에서  선언한 변수명칭이 일치하는지 확인
-                                  //        String? profileImageUrl,
-                                  // import 'package:game_workspace/models/User.dart';
-                                  // model 작성되어있는 경로나 클래스명칭이 다르다면 문제 발생
-                                  //          이미지가 존재하지 않을 경우 대체할 기본 이미지 assets 에 추가 후 '' 에셋 경로 이미지 넣어주기
-                                  NetworkImage(user.profileImageUrl ?? ''),
-                            ),
+                                radius: 30,
+                                backgroundImage:
+                                    // The getter 'profileImageUrl' isn't defined for the type 'User'.
+                                    // 1. user.dart 에서  선언한 변수명칭이 일치하는지 확인
+                                    //        String? profileImageUrl,
+                                    // import 'package:game_workspace/models/User.dart';
+                                    // model 작성되어있는 경로나 클래스명칭이 다르다면 문제 발생
+                                    //          이미지가 존재하지 않을 경우 대체할 기본 이미지 assets 에 추가 후 '' 에셋 경로 이미지 넣어주기
+                                    NetworkImage(user.profileImageUrl!)
+                                //: AssetImage('/asset/images/이미지경로.png')),
+                                ),
                             title: Text(user.userName),
                             subtitle: Text(user.email),
                             trailing: const Icon(Icons.arrow_forward_ios),

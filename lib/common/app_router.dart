@@ -44,7 +44,14 @@ class AppRouter {
     GoRoute(path: "/users", builder: (context, state) {
       final thisDate = state.extra as GameItem?;
       return UserListScreen(gameId: "users", gameItem: thisDate);
-    })
+    }),
+
+    // 프로필 화면 -> 프론트엔드용 주소 / 백엔드 소통 XXX
+    GoRoute(path: "/profile/:userId",
+        builder: (context, state) {
+        final userId = state.pathParameters['userId'];
+        return ProfileScreen(userId: userId);
+    }),
     /*
         GoRoute(path: '/game/:id',
         builder: (context,state) {
