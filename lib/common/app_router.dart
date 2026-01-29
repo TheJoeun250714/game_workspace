@@ -11,6 +11,8 @@ import 'package:game_workspace/screens/main_screen.dart';
 import 'package:game_workspace/screens/user_list_screen.dart';
 import 'package:go_router/go_router.dart';
 
+import '../screens/profile_screen.dart';
+
 class AppRouter {
   static final router = GoRouter(initialLocation: '/', routes: [
     GoRoute(path: '/', builder: (context, state) => const MainScreen()),

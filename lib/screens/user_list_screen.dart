@@ -32,7 +32,10 @@ class _UserListScreenState extends State<UserListScreen> {
     setState(() => isLoading = true);
 
     try {
-      final result = await UserService.getAllUsers(); // 백엔드에서 데이터를 가져오기
+      // getAllUsers 가 static 이 아닐 경우
+      // 인스턴스를 생성하여 userService 사용
+      final userService = UserService();
+      final result = await userService.getAllUsers(); // 백엔드에서 데이터를 가져오기
       // 데이터를 성공적으로 가져왔다면 UI 상태 변경 진행
       setState(() {
         //  result 변수에서 작동한 결과 모델과
@@ -88,7 +91,7 @@ class _UserListScreenState extends State<UserListScreen> {
                             trailing: const Icon(Icons.arrow_forward_ios),
                             // 클릭하면 프로필 화면으로 이동
                             onTap: () {
-                              context.go('/users/${user.userId}', extra: user);
+                              context.go('/profile/${user.userId}', extra: user);
                             }),
                       );
                     }));

@@ -10,7 +10,7 @@ import 'package:provider/provider.dart';
 import '../models/user.dart';
 
 class ProfileScreen extends StatefulWidget {
-  final String userId;
+  final String? userId;
 
   const ProfileScreen({super.key, required this.userId});
 
@@ -88,9 +88,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
       .copyWith 사용
        */
 
-
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('업로드 실패')));
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text('업로드 실패')));
       }
     }
   }
@@ -116,10 +116,35 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     children: [
                       CircleAvatar(
                         radius: 60,
-                        backgroundImage: NetworkImage(user.userProfileIamgeUrl),
-                      )
+                        backgroundImage: NetworkImage(user!.profileImageUrl!),
+                        // null ok
+                        // 이미지가 존재하지 않는다면 아이콘으로 대체
+                        // 이미지가 존재하면 null 로 처리
+                        child: user!.profileImageUrl == null
+                            ? Icon(Icons.person)
+                            : null,
+                      ),
+                      Positioned(
+                          child: Container(
+                        padding: EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                            color: Colors.blue,
+                            shape: BoxShape.circle,
+                            border: Border.all(color: Colors.white, width: 2)),
+                        child: const Icon(
+                          Icons.camera_alt,
+                          color: Colors.white,
+                        ),
+                      ))
                     ],
                   ),
+                ),
+                const SizedBox(
+                  height: 24,
+                ),
+                Text(
+                  user!.userName,
+                  style: const TextStyle(fontSize: 24),
                 )
               ],
             ),
