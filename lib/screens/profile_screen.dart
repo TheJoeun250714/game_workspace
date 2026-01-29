@@ -71,10 +71,49 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   Future<void> _pickImage() async {
+    //  final ImagePicker _picker = ImagePicker();
+    //  ImagePicker  = 이미지를 선택하는 도구
+    //  .pickImage() = 이미지를 선택하는 기능
+    //  ImageSource  = 어디서 이미지를 가져올지 선택
+    //  .gallery()   = 갤러리 사진첩에서 선택
+    //  .camera()    = 카메라로 찍기
+    //  XFile        = 선택된 파일 정보를 담는 객체
     final XFile? image = await _picker.pickImage(
-        source: ImageSource.gallery, maxWidth: 800, maxHeight: 800);
+        source: ImageSource.gallery, // 갤러리에서 선택
+        maxWidth: 200, // 최대 가로 픽셀
+        maxHeight: 200); // 최대 세로 픽셀
 
     if (image != null) {
+      setState(() => isLoading = true);
+
+      try {
+        final userService = UserService();
+        final imageUrl = await userService.uploadProfileImage(
+            widget.userId!, File(image.path));
+
+        if (imageUrl != null && user != null) {
+          setState(() {
+            user = user!.copyWith(profileImageUrl: imageUrl);
+            isLoading = false;
+
+            if (mounted) {
+              ScaffoldMessenger.of(context)
+                  .showSnackBar(const SnackBar(content: Text('업데이트 완료')));
+            }
+          });
+        } else {
+          if (mounted) {
+            ScaffoldMessenger.of(context)
+                .showSnackBar(const SnackBar(content: Text('업로드 실패')));
+          }
+        }
+      } catch (e) {
+        setState(() => isLoading = false);
+        if (mounted) {
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text('오류 $e')));
+        }
+      }
       /*
       마찬가지로 로그인한 유저의 프로필상태를 가져올 때 사용
       final success = await context
@@ -87,11 +126,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
       try catch 를 이용해서 프로필 이미지 변경 uploadProfileImage 로 교체
       .copyWith 사용
        */
-
-      if (mounted) {
-        ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text('업로드 실패')));
-      }
     }
   }
 
@@ -125,6 +159,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             : null,
                       ),
                       Positioned(
+                          // 아무런값을 주지 않으면
+                          // 현재 stack 위치에서
+                          // 왼쪽 맨 위 배치
+                          // left top right bottom 형태로 하여
+                          // 카메라 모양 위치 변경
                           child: Container(
                         padding: EdgeInsets.all(8),
                         decoration: BoxDecoration(
@@ -145,6 +184,41 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Text(
                   user!.userName,
                   style: const TextStyle(fontSize: 24),
+                ),
+                // ****************************************************
+                const SizedBox(
+                  height: 24,
+                ),
+                Text(
+                  user!.email,
+                  style: const TextStyle(fontSize: 24),
+                ),
+                const SizedBox(
+                  height: 24,
+                ),
+                Text(
+                  user!.userId,
+                  style: const TextStyle(fontSize: 24),
+                ),
+                const SizedBox(
+                  height: 24,
+                ),
+                Container(
+                  padding: EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                      color: Colors.blue[50],
+                      borderRadius: BorderRadius.circular(12)),
+                  child: Row(
+                    children: [
+                      Icon(Icons.info_outline, color: Colors.blue[700]),
+                      SizedBox(width: 12),
+                      Expanded(
+                          child: Text(
+                        '프로필 이미지를 클릭하여 변경할 수 있습니다.',
+                        style: TextStyle(color: Colors.blue[700]),
+                      ))
+                    ],
+                  ),
                 )
               ],
             ),
